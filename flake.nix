@@ -20,6 +20,7 @@
           packages = with pkgs; [
             zig
             just
+            vhs
           ];
 
           shellHook = ''

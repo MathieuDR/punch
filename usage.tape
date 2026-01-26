@@ -8,61 +8,120 @@ Set Height 600
 
 # Shows the current state time block being tracked
 # If nothing is tracked shows something like `no tracking active`
-# If we're tracking something to describe the current task / project / category and total time.
+# If we're tracking something, describe the current task / project / category and total time.
 Type "opus"
 Sleep 250ms
 Enter
+Sleep 1s
 
-# Starts a tracking task for project: opss with task 'testing argument parsing'
-Type "opus start -p opss -t 'testing argument parsing'"
+# Starts tracking for employer work on History feature
+Type "opus start -c employer -p 'History Event Sourcing' -t 'setup projections'"
 Sleep 250ms
 Enter
+Sleep 1s
 
-# Changes the project to 'opus', in the current time block
-Type "opus amend -p opus"
+# Check status - should show what's running
+Type "opus"
 Sleep 250ms
 Enter
+Sleep 1s
 
-# Switches task in the same project, finish the time block, thus starting a new one
-Type "opus switch -t 'new ttask'"
+# Amend the current task description in the same time block
+Type "opus amend -t 'setup projections and hydration'"
 Sleep 250ms
 Enter
+Sleep 1s
 
-# Changes the current task to 'new task!' in the same time block
-Type "opus amend -t 'new task!'"
+# Switch to new task in same project - finishes current block, starts new one
+Type "opus switch -t 'testing migration'"
 Sleep 250ms
 Enter
+Sleep 1s
 
-# Stops tracking
-# Gives some small info, how long we were on it etc
+# Add some notes to current task, with the current timestamp
+Type "opus log 'found edge case with null timestamps'"
+Sleep 250ms
+Enter
+Sleep 1s
+
+# Done with this task - stop tracking with summary
+Type "opus done"
+Sleep 250ms
+Enter
+Sleep 2s
+
+# Start personal project work (category defaults to none if omitted)
+Type "opus start -p opus -t 'arg parsing implementation'"
+Sleep 250ms
+Enter
+Sleep 1s
+
+# Quick meeting interruption
 Type "opus done"
 Sleep 250ms
 Enter
 
-# Continues last task / project
-# When we add -t it just continues the same project, but with a new task
-Type "opus continue -t 'new task'"
+Type "opus start -c employer -p meetings -t 'team standup'"
 Sleep 250ms
 Enter
+Sleep 1s
 
-# Forgets / removes the current tracking block.
+Type "opus done"
+Sleep 250ms
+Enter
+Sleep 1s
+
+# Continue previous task (opus arg parsing)
+Type "opus continue previous"
+Sleep 250ms
+Enter
+Sleep 1s
+
+# Oops, wrong task - forget this block
 Type "opus forget"
 Sleep 250ms
 Enter
+Sleep 1s
 
-# Lists all time records
+# List all time records
 Type "opus list"
 Sleep 250ms
 Enter
+Sleep 2s
 
-# Lists all projects (without tasks)
-Type "opus list projects"
+# List specific project
+Type "opus list -p 'History Event Sourcing'"
 Sleep 250ms
 Enter
+Sleep 2s
 
-# Lists all projects and tasks, maybe with a less / page or whatever to make it UNIX compat
-Type "opus list tasks <PROJECT>"
+# List by category
+Type "opus list -c employer"
 Sleep 250ms
 Enter
+Sleep 2s
 
-Sleep 5s
+# --- FUTURE / COMMENTED OUT FOR MVP ---
+
+# # Show stats for today
+# Type "opus stats --today"
+# Sleep 250ms
+# Enter
+# Sleep 2s
+
+# # Show stats for specific project
+# Type "opus stats -p opus"
+# Sleep 250ms
+# Enter
+# Sleep 2s
+
+# # Show stats by category (employer vs personal)
+# Type "opus stats -c employer --week"
+# Sleep 250ms
+# Enter
+# Sleep 2s
+
+# # List all projects
+# Type "opus list projects"
+# Sleep 250ms
+# Enter

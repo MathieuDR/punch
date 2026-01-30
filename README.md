@@ -15,7 +15,7 @@ Track time at the right granularity - not too detailed (per-file changes), not t
 ## Quick Start
 ```bash
 # Start tracking
-punch start -c employer -p "History Event Sourcing" -t "setup projections"
+punch in -c employer -p "History Event Sourcing" -t "setup projections"
 
 # Check what's running
 punch
@@ -27,16 +27,19 @@ punch log "found edge case with null timestamps"
 punch switch -t "testing migration"
 
 # Finish current task
-punch done
+punch out
 
 # Continue previous task
 punch continue
 punch continue -2  # go back 2 tasks
 
 # View your time
-punch list
-punch list -p "History Event Sourcing"
-punch list -c employer
+punch card
+punch card -p "History Event Sourcing"
+punch card -c employer
+
+# Check your report
+punch tally
 ```
 
 ## Usage Examples

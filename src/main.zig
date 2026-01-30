@@ -1,5 +1,5 @@
 const std = @import("std");
-const opus = @import("opus");
+const punch = @import("punch");
 const parser = @import("parser.zig");
 
 pub fn main() !void {

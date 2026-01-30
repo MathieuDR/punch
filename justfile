@@ -2,7 +2,7 @@ tape:
   vhs usage.tape
   imv -s shrink tape.gif
 
-opus *ARGS:
+punch *ARGS:
   zig build run -- {{ARGS}}
 
 test:

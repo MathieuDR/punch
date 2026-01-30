@@ -1,4 +1,4 @@
-# opus
+# punch
 Simple, flexible CLI time tracking for developers.
 
 Inspired by [zeit](https://github.com/mrusme/zeit), but designed for tracking work across initiatives, codebases, and contexts.
@@ -8,35 +8,35 @@ Track time at the right granularity - not too detailed (per-file changes), not t
 
 ## Core Concepts
 - **Category** (optional): Who you're working for (`employer`, `personal`, or omit)
-- **Project**: The initiative or area of work (`History Event Sourcing`, `opus`, `homelab`)
+- **Project**: The initiative or area of work (`History Event Sourcing`, `punch`, `homelab`)
 - **Task**: The specific work you're doing (`setup projections`, `arg parsing`)
 - **Notes**: Optional timestamped context you add as you work
 
 ## Quick Start
 ```bash
 # Start tracking
-opus start -c employer -p "History Event Sourcing" -t "setup projections"
+punch start -c employer -p "History Event Sourcing" -t "setup projections"
 
 # Check what's running
-opus
+punch
 
 # Add a note to current task
-opus log "found edge case with null timestamps"
+punch log "found edge case with null timestamps"
 
 # Switch to new task in same project
-opus switch -t "testing migration"
+punch switch -t "testing migration"
 
 # Finish current task
-opus done
+punch done
 
 # Continue previous task
-opus continue
-opus continue -2  # go back 2 tasks
+punch continue
+punch continue -2  # go back 2 tasks
 
 # View your time
-opus list
-opus list -p "History Event Sourcing"
-opus list -c employer
+punch list
+punch list -p "History Event Sourcing"
+punch list -c employer
 ```
 
 ## Usage Examples
@@ -70,7 +70,7 @@ zig build test
 ```
 
 ## Why not zeit?
-zeit is great! opus is just my take on it:
+zeit is great! punch is just my take on it:
 - Flexible project/initiative tracking without rigid nesting that makes sense for me
 - Category support for multi-client/employer workflows
 - Timestamped notes within tasks
